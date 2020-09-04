@@ -120,10 +120,10 @@ window.view = {
   				this.showDay('case6Id', this.currentSiblingElement.id, 'saturdayImages', 'strNullId', 'Saturday');
   				break;
 			case 7:
-  				this.showDay('case7Id', this.currentSiblingElement.id, 'sundayImages', 'strNullId', 'Sunday');
+  				this.showDay('case7Id', this.currentSiblingElement.id, 'sundayImages', 'strNullId', '0');
   				break;
   			default:
-  				this.showDay('defaultId', this.currentSiblingElement.id, null, 'strNullId', 'null');
+  				this.showDay('defaultId', this.currentSiblingElement.id, 0, 'strNullId', 'null');
         		break;	
 		}
 	},
@@ -230,33 +230,39 @@ window.view = {
 				this.setInnerHtml('outputDayId', 'WORKING DAY');
 	 		}
 	 	}
-		if ( model.inputNumber > 7 ) {
-	 		if (this.nextSiblingElement.id === 'holidayId')
+		if ( model.inputNumber > 7 && model.inputNumber ==0 ) {
+	 		if (this.nextSiblingElement.id == 'holidayId')
 				this.codeExecutionWithColourAndId('elseIfId');
-	 		else if (this.nextSiblingElement.id === 'workingdayId') 
+	 		else if (this.nextSiblingElement.id == 'workingdayId') 
 				this.codeExecutionWithColourAndId('elseId');
-	 		else if (this.nextSiblingElement.id === 'invalidIPId') {
+	 		else if (this.nextSiblingElement.id == 'invalidIPId') {
 				this.codeExecutionWithColour();
 				this.setInnerHtml('outputDayId', 'INVALID INPUT');
 	 		}
 	 	}
-	 	if (model.inputNumber === 6) {
-	 		if (this.nextSiblingElement.id === 'holidayId') {
+	 	if (model.inputNumber == 6) {
+	 		if (this.nextSiblingElement.id == 'holidayId') {
 				this.codeExecutionWithColour();
 				this.changeOpacity('holidayImage');
 				this.setInnerHtml('outputDayId', 'HOLIDAY');
 	 		}
 	 	}
-	 	if (model.inputNumber === 7) {
-	 		if (this.nextSiblingElement.id === 'holidayId') {
+	 	if (model.inputNumber == 7) {
+	 		if (this.nextSiblingElement.id == 'holidayId') {
 				this.codeExecutionWithColour();
 				this.changeOpacity('holidayImage');
 				this.setInnerHtml('outputDayId', 'HOLIDAY');
 	 		}
+	 	if (model.inputNumber == 0) {
+	 		if (this.nextSiblingElement.id == 'holidayId') {
+				this.codeExecutionWithColour();
+				this.setInnerHtml('outputDayId', 'INVALID INPUT');
+	 		}
+	 		}
 	 	}
-		if (this.nextSiblingElement.id === 'ifId')
+		if (this.nextSiblingElement.id == 'ifId')
 			this.codeExecutionWithColour();
-		if (this.nextSiblingElement.id === 'closeBrc2Id' || this.nextSiblingElement.id === 'elseId' || this.nextSiblingElement.id === 'elseIfId') {
+		if (this.nextSiblingElement.id == 'closeBrc2Id' || this.nextSiblingElement.id == 'elseId' || this.nextSiblingElement.id == 'elseIfId') {
 			this.codeExecutionWithColourAndId('closeBrc2Id');
 	 	}
 	},
