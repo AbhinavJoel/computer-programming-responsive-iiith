@@ -34,7 +34,19 @@ window.view = {
  	},
 	getInput: function() {
 		var inputValue = document.getElementById('simpleLoopInput').value
-		model.inp = Number(inputValue)
+		if (inputValue < '0' || inputValue >20)
+		{
+			alert("Invalid input")
+		}
+		else if (inputValue < '0' || inputValue >20)
+		{
+			alert("Invalid input")
+		}
+		else if (inputValue < '0' || inputValue >20)
+		{
+		 	alert("Invalid input")
+		}
+		else (model.inp = Number(inputValue))
 		this.clearExecutionSection()
 	},
 	getNestedInput: function() {
@@ -167,6 +179,19 @@ window.view = {
     	this.clearDivs()
     	var selected_loop = this.getSelectedLoop()
 		var inputValue = document.getElementById('simpleLoopInput').value
+
+		if (selected_loop === 'for' && inputValue < '0' && inputValue >20 )
+		{
+			alert("Invalid input")
+		}
+		if (selected_loop === 'while' && inputValue < '0' && inputValue >20)
+		{
+			alert("Invalid input")
+		}
+		if (selected_loop === 'do-while' && inputValue < '0' && inputValue >20)
+		{
+		 	alert("Invalid input")
+		}
 		if (selected_loop === 'for' && inputValue !== '' && !isNaN(model.inp) )
 		{
 			this.displayLoop('forLoopContent', 'codeContentFor1')
